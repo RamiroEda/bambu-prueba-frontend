@@ -6,8 +6,9 @@ import {
   redirectUnauthorizedTo,
 } from '@angular/fire/auth-guard';
 import { HomeComponent } from './home/home.component';
-import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
+import { PokemonComponent } from './home/pokemon/pokemon.component';
+import { CadenasComponent } from './home/cadenas/cadenas.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,16 @@ const routes: Routes = [
     data: {
       authGuardPipe: () => redirectUnauthorizedTo(['']),
     },
+    children: [
+      {
+        path: '',
+        component: PokemonComponent,
+      },
+      {
+        path: 'cadenas',
+        component: CadenasComponent,
+      },
+    ],
   },
 ];
 

@@ -1,12 +1,13 @@
 import { ButtonModule } from 'primeng/button';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { CardModule } from 'primeng/card';
+import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { ToastModule } from 'primeng/toast';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
+import { PokemonComponent } from './home/pokemon/pokemon.component';
+import { CadenasComponent } from './home/cadenas/cadenas.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import { AuthComponent } from './auth/auth.component';
     RegisterComponent,
     HomeComponent,
     AuthComponent,
+    PokemonComponent,
+    CadenasComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +41,7 @@ import { AuthComponent } from './auth/auth.component';
     SelectButtonModule,
     ToastModule,
     FormsModule,
+    MenubarModule,
     ReactiveFormsModule,
     ButtonModule,
     InputTextModule,
