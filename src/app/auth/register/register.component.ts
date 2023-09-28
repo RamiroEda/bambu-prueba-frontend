@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import { AuthRepositoryService } from '../data/repositories/auth-repository.service';
-import { RegisterInput } from '../data/models/register-input';
+import { AuthRepositoryService } from '../../data/repositories/auth-repository.service';
+import { RegisterInput } from '../../data/models/register-input';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,8 @@ import { RegisterInput } from '../data/models/register-input';
 export class RegisterComponent {
   constructor(
     private authRepository: AuthRepositoryService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private router: Router
   ) {}
 
   registerForm = new FormGroup(
@@ -51,6 +53,9 @@ export class RegisterComponent {
       this.isLoading = true;
       await this.authRepository
         .register(this.registerForm.value as RegisterInput)
+        .then(() => {
+          this.router.navigate(['home']);
+        })
         .catch((e) => {
           this.messageService.add({
             severity: 'error',

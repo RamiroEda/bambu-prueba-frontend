@@ -7,11 +7,12 @@ import {
 } from '@angular/fire/auth-guard';
 import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
+import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
+    component: AuthComponent,
     canActivate: [AuthGuard],
     data: {
       authGuardPipe: () => redirectLoggedInTo(['home']),
