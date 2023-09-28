@@ -1,0 +1,56 @@
+<form class="flex flex-col gap-4 items-center" [formGroup]="registerForm">
+  <input
+    name="name"
+    type="text"
+    pInputText
+    autocomplete="off"
+    placeholder="Nombre completo"
+    formControlName="name"
+  />
+  <input
+    name="email"
+    type="email"
+    pInputText
+    autocomplete="off"
+    placeholder="Correo electrónico"
+    formControlName="email"
+  />
+  <input
+    name="password"
+    type="password"
+    pInputText
+    autocomplete="off"
+    placeholder="Contraseña"
+    formControlName="password"
+  />
+  <input
+    name="passwordConfirm"
+    type="password"
+    pInputText
+    autocomplete="off"
+    placeholder="Confirmar contraseña"
+    formControlName="passwordConfirm"
+  />
+  <input
+    name="phone"
+    type="text"
+    pInputText
+    autocomplete="off"
+    placeholder="Teléfono"
+    formControlName="phone"
+  />
+  <p-calendar
+    formControlName="birthday"
+    name="birthday"
+    [maxDate]="maxDate"
+    dateFormat="dd/mm/yy"
+    placeholder="Fecha de nacimiento"
+  />
+  <p-button
+    label="Registrar"
+    autocomplete="off"
+    [disabled]="registerForm.invalid"
+    (onClick)="register()"
+    [loading]="isLoading"
+  />
+</form>

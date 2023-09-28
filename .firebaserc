@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bambu-de4f0": {
+      "hosting": {
+        "bambu-prueba-tecnica": [
+          "bambu-de4f0"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bambu-de4f0"
+  }
+}

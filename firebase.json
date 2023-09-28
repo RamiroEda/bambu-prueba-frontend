@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "bambu-prueba-tecnica",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

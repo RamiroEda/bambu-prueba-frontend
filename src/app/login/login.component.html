@@ -1,0 +1,25 @@
+<form class="flex flex-col gap-4 items-center" [formGroup]="loginForm">
+  <input
+    name="email"
+    type="text"
+    pInputText
+    autocomplete="off"
+    placeholder="Correo electrónico"
+    formControlName="email"
+  />
+  <input
+    name="password"
+    type="password"
+    pInputText
+    autocomplete="off"
+    placeholder="Contraseña"
+    formControlName="password"
+  />
+  <p-button
+    label="Iniciar sesión"
+    autocomplete="off"
+    [disabled]="loginForm.invalid"
+    (onClick)="login()"
+    [loading]="isLoading"
+  />
+</form>
