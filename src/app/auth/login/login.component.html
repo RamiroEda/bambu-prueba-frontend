@@ -1,4 +1,4 @@
-<form class="flex flex-col gap-4 items-center" [formGroup]="loginForm">
+<form class="flex flex-col gap-4 items-stretch" [formGroup]="loginForm">
   <input
     name="email"
     type="text"
@@ -17,6 +17,7 @@
   />
   <p-button
     label="Iniciar sesión"
+    class="self-center"
     autocomplete="off"
     [disabled]="loginForm.invalid"
     (onClick)="login()"

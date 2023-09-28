@@ -1,15 +1,17 @@
 <div class="flex justify-center items-center h-screen w-full">
   <p-toast></p-toast>
-  <p-card>
-    <p-selectButton
-      [options]="options"
-      [(ngModel)]="value"
-      optionLabel="label"
-      optionValue="value"
-    />
-    <div class="mt-8">
-      <app-login *ngIf="value === 'login'" />
-      <app-register *ngIf="value === 'register'" />
+  <p-card class="max-w-sm w-full mx-4 md:mx-0">
+    <div class="flex flex-col items-center">
+      <p-selectButton
+        [options]="options"
+        [(ngModel)]="value"
+        optionLabel="label"
+        optionValue="value"
+      />
+      <div class="mt-8 w-full">
+        <app-login *ngIf="value === 'login'" />
+        <app-register *ngIf="value === 'register'" />
+      </div>
     </div>
   </p-card>
 </div>

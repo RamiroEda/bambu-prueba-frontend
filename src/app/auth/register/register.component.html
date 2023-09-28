@@ -1,4 +1,4 @@
-<form class="flex flex-col gap-4 items-center" [formGroup]="registerForm">
+<form class="flex flex-col gap-4 items-stretch" [formGroup]="registerForm">
   <input
     name="name"
     type="text"
@@ -43,12 +43,14 @@
     formControlName="birthday"
     name="birthday"
     [maxDate]="maxDate"
+    class="[&>*]:w-full"
     dateFormat="dd/mm/yy"
     placeholder="Fecha de nacimiento"
   />
   <p-button
     label="Registrar"
     autocomplete="off"
+    class="self-center"
     [disabled]="registerForm.invalid"
     (onClick)="register()"
     [loading]="isLoading"
