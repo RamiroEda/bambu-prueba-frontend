@@ -1,1 +1,52 @@
-<p>pokemon works!</p>
+<ng-template *ngIf="isLoading && pokemons.length === 0; else content">
+  <div class="flex justify-center items-center h-96 w-full">
+    <p-progressSpinner
+      styleClass="w-12 h-12"
+      strokeWidth="4"
+    ></p-progressSpinner>
+  </div>
+</ng-template>
+<ng-template #content>
+  <div class="flex flex-col">
+    <input
+      pInputText
+      type="text"
+      placeholder="Buscar..."
+      class="mb-8 self-end"
+      [(ngModel)]="searchValue"
+      (ngModelChange)="this.searchDebounce.next($event)"
+    />
+    <div
+      class="flex justify-center items-center h-96 w-full"
+      *ngIf="isSearching"
+    >
+      <p-progressSpinner
+        styleClass="w-12 h-12"
+        strokeWidth="4"
+      ></p-progressSpinner>
+    </div>
+    <p-messages
+      *ngIf="!isSearching && !pokemons.length"
+      [enableService]="false"
+      [closable]="false"
+      [value]="[
+        {
+          severity: 'error',
+          summary: 'Error',
+          detail: 'No se ha encontrado el pokemon'
+        }
+      ]"
+    />
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 mb-8">
+      <app-pokemon-card *ngFor="let pokemon of pokemons" [pokemon]="pokemon" />
+    </div>
+
+    <p-paginator
+      (onPageChange)="changePage($event)"
+      [first]="first"
+      [rows]="pageSize"
+      [totalRecords]="totalPages"
+      [rowsPerPageOptions]="[20, 40]"
+    ></p-paginator>
+  </div>
+</ng-template>

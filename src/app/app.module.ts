@@ -4,7 +4,11 @@ import { CardModule } from 'primeng/card';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { PaginatorModule } from 'primeng/paginator';
 import { ToastModule } from 'primeng/toast';
+import { ChipModule } from 'primeng/chip';
+import { MessagesModule } from 'primeng/messages';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,6 +27,8 @@ import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { PokemonComponent } from './home/pokemon/pokemon.component';
 import { CadenasComponent } from './home/cadenas/cadenas.component';
+import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +39,7 @@ import { CadenasComponent } from './home/cadenas/cadenas.component';
     AuthComponent,
     PokemonComponent,
     CadenasComponent,
+    PokemonCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,12 +47,17 @@ import { CadenasComponent } from './home/cadenas/cadenas.component';
     BrowserAnimationsModule,
     SelectButtonModule,
     ToastModule,
+    PaginatorModule,
     FormsModule,
+    MessagesModule,
+    ChipModule,
     MenubarModule,
     ReactiveFormsModule,
     ButtonModule,
+    HttpClientModule,
     InputTextModule,
     CalendarModule,
+    ProgressSpinnerModule,
     CardModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

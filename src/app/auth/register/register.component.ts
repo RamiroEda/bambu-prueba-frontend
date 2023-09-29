@@ -51,8 +51,10 @@ export class RegisterComponent {
   async register() {
     if (this.registerForm.valid) {
       this.isLoading = true;
+      const input = this.registerForm.value;
+      delete input.passwordConfirm;
       await this.authRepository
-        .register(this.registerForm.value as RegisterInput)
+        .register(input as RegisterInput)
         .then(() => {
           this.router.navigate(['home']);
         })
