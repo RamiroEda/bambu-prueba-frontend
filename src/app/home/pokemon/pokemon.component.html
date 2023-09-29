@@ -8,22 +8,20 @@
 </ng-template>
 <ng-template #content>
   <div class="flex flex-col">
-    <input
-      pInputText
-      type="text"
-      placeholder="Buscar..."
-      class="mb-8 self-end"
-      [(ngModel)]="searchValue"
-      (ngModelChange)="this.searchDebounce.next($event)"
-    />
-    <div
-      class="flex justify-center items-center h-96 w-full"
-      *ngIf="isSearching"
-    >
+    <div class="flex flex-row items-center self-end mb-8 gap-8">
       <p-progressSpinner
-        styleClass="w-12 h-12"
+        styleClass="w-8 h-8"
         strokeWidth="4"
+        *ngIf="isLoading || isSearching"
       ></p-progressSpinner>
+      <input
+        pInputText
+        type="text"
+        placeholder="Buscar..."
+        class="self-end"
+        [(ngModel)]="searchValue"
+        (ngModelChange)="this.searchDebounce.next($event)"
+      />
     </div>
     <p-messages
       *ngIf="!isSearching && !pokemons.length"
@@ -37,7 +35,10 @@
         }
       ]"
     />
-    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 mb-8">
+    <div
+      class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 mb-8"
+      *ngIf="!isSearching"
+    >
       <app-pokemon-card *ngFor="let pokemon of pokemons" [pokemon]="pokemon" />
     </div>
 

@@ -21,7 +21,7 @@ export class PokemonComponent implements OnInit {
 
   constructor(private pokemonRepository: PokemonRepositoryService) {
     this.searchDebounce
-      .pipe(debounceTime(1000), distinctUntilChanged())
+      .pipe(debounceTime(500), distinctUntilChanged())
       .subscribe((value) => {
         this.search(value);
       });
@@ -34,7 +34,8 @@ export class PokemonComponent implements OnInit {
     });
   }
 
-  search(value: string) {
+  search(incoming: string) {
+    const value = incoming.trim();
     if (value === '') {
       this.changePage({
         first: 0,
