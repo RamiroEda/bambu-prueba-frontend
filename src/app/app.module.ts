@@ -24,11 +24,13 @@ import { RegisterComponent } from './auth/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { HomeComponent } from './home/home.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { AuthComponent } from './auth/auth.component';
 import { PokemonComponent } from './home/pokemon/pokemon.component';
 import { CadenasComponent } from './home/cadenas/cadenas.component';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CountNumbersPipe } from './home/cadenas/data/pipes/count-numbers.pipe';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     PokemonComponent,
     CadenasComponent,
     PokemonCardComponent,
+    CountNumbersPipe,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     ButtonModule,
     HttpClientModule,
+    InputTextareaModule,
     InputTextModule,
     CalendarModule,
     ProgressSpinnerModule,
