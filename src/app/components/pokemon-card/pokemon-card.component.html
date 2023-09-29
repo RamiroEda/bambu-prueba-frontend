@@ -39,10 +39,7 @@
   />
   <div class="flex flex-col gap-4 items-center">
     <div class="flex flex-col gap-2 items-center">
-      <div class="flex flex-row gap-2">
-        <h3 class="my-0 mb-2">{{ pokemon.name }}</h3>
-        <div>#{{ pokemon.id | number : "3.0-0" }}</div>
-      </div>
+      <div>Numero: #{{ pokemon.id | number : "3.0-0" }}</div>
       <div class="flex flex-row gap-4">
         <p-chip
           *ngFor="let type of pokemon.types"

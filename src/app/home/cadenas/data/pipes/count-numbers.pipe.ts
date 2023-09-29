@@ -4,14 +4,31 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'countNumbers',
 })
 export class CountNumbersPipe implements PipeTransform {
-  transform(value: string, ...args: never[]): string {
-    if (!value) return '';
+  transform(
+    value: string,
+    ...args: never[]
+  ):
+    | {
+        value: string;
+        error: boolean;
+      }
+    | undefined {
+    if (!value) return undefined;
 
     try {
+      let error = false;
+
       const numbers = value
         .split(',')
-        .filter((it) => it.trim())
         .map((it) => it.trim())
+        .filter((it) => {
+          const number = Number(it);
+          if (isNaN(number)) {
+            error = true;
+            return false;
+          }
+          return true;
+        })
         .map((it) => Number(it))
         .filter((it) => !isNaN(it));
 
@@ -20,12 +37,18 @@ export class CountNumbersPipe implements PipeTransform {
         return acc;
       }, new Map<number, number>());
 
-      return [...counts.entries()]
-        .sort(([keyA], [keyB]) => keyB - keyA)
-        .map(([key, value]) => `${key}-${value}`)
-        .join(', ');
+      return {
+        value: [...counts.entries()]
+          .sort(([keyA], [keyB]) => keyB - keyA)
+          .map(([key, value]) => `${key}-${value}`)
+          .join(', '),
+        error,
+      };
     } catch (e) {
-      return 'Formato incorrecto';
+      return {
+        value: 'Formato incorrecto',
+        error: true,
+      };
     }
   }
 }

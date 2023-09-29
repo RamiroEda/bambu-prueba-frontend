@@ -27,12 +27,10 @@ export class HomeComponent {
       label: 'Perfil',
       routerLink: '/home/profile',
     },
-    {
-      label: 'Cerrar sesión',
-      command: async () => {
-        await this.authRepository.logout();
-        this.router.navigate(['']);
-      },
-    },
   ];
+
+  async logout() {
+    await this.authRepository.logout();
+    this.router.navigate(['']);
+  }
 }

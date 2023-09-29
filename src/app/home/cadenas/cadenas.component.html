@@ -1,10 +1,19 @@
 <div class="flex flex-col gap-8 items-center">
   <p>Ingresa una serie de números separados por coma (,)</p>
-  <textarea
-    pInputTextarea
-    [(ngModel)]="numbers"
-    class="w-full"
-    placeholder="1,2,3,1,2,3,5,..."
-  ></textarea>
-  <h1>{{ numbers | countNumbers }}</h1>
+  <div class="w-full">
+    <textarea
+      pInputTextarea
+      [(ngModel)]="numbers"
+      class="w-full"
+      placeholder="1,2,3,1,2,3,5,..."
+    ></textarea>
+    <p class="text-red-500 text-sm mt-0">
+      {{
+        (numbers | countNumbers)?.error
+          ? "Alguno de los campos no es válido"
+          : ""
+      }}
+    </p>
+  </div>
+  <h1>{{ (numbers | countNumbers)?.value }}</h1>
 </div>
