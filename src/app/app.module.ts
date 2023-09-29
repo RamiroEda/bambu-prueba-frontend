@@ -31,6 +31,8 @@ import { CadenasComponent } from './home/cadenas/cadenas.component';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CountNumbersPipe } from './home/cadenas/data/pipes/count-numbers.pipe';
+import { ProfileComponent } from './home/profile/profile.component';
+import { TimestampFormatPipe } from './home/profile/data/pipes/timestamp-format.pipe';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { CountNumbersPipe } from './home/cadenas/data/pipes/count-numbers.pipe';
     CadenasComponent,
     PokemonCardComponent,
     CountNumbersPipe,
+    ProfileComponent,
+    TimestampFormatPipe,
   ],
   imports: [
     BrowserModule,

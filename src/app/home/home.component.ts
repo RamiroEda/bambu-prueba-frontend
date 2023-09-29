@@ -24,6 +24,10 @@ export class HomeComponent {
       routerLink: '/home/cadenas',
     },
     {
+      label: 'Perfil',
+      routerLink: '/home/profile',
+    },
+    {
       label: 'Cerrar sesión',
       command: async () => {
         await this.authRepository.logout();

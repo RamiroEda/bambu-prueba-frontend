@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { PokemonComponent } from './home/pokemon/pokemon.component';
 import { CadenasComponent } from './home/cadenas/cadenas.component';
+import { ProfileComponent } from './home/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path: 'cadenas',
         component: CadenasComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
       },
     ],
   },
