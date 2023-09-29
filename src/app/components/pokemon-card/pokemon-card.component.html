@@ -6,9 +6,19 @@
       class="w-24 h-24"
     />
     <div>
-      <h3 class="my-0 mb-2">{{ pokemon.name }}</h3>
+      <div class="flex flex-row gap-2">
+        <h3 class="my-0 mb-2">{{ pokemon.name }}</h3>
+        <div>#{{ pokemon.id | number : "3.0-0" }}</div>
+      </div>
       <div class="flex flex-row gap-4">
-        <p-chip *ngFor="let type of pokemon.types" [label]="type.type.name" />
+        <p-chip
+          *ngFor="let type of pokemon.types"
+          [label]="type.type.name"
+          [style]="{
+            'background-color': TypeColors[type.type.name],
+            color: 'white'
+          }"
+        />
       </div>
     </div>
   </div>
