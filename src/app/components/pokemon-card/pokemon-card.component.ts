@@ -10,4 +10,6 @@ import { TypeColors } from '../../data/models/type-colors';
 export class PokemonCardComponent {
   @Input() pokemon!: Pokemon;
   TypeColors = TypeColors;
+
+  isOpen = false;
 }

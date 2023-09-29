@@ -7,6 +7,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { PaginatorModule } from 'primeng/paginator';
 import { ToastModule } from 'primeng/toast';
+import { DialogModule } from 'primeng/dialog';
 import { ChipModule } from 'primeng/chip';
 import { MessagesModule } from 'primeng/messages';
 
@@ -58,6 +59,7 @@ import { TimestampFormatPipe } from './home/profile/data/pipes/timestamp-format.
     FormsModule,
     MessagesModule,
     ChipModule,
+    DialogModule,
     MenubarModule,
     ReactiveFormsModule,
     ButtonModule,
