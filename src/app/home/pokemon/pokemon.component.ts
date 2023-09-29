@@ -19,6 +19,9 @@ export class PokemonComponent implements OnInit {
   searchDebounce = new Subject<string>();
   searchValue = '';
 
+  /**
+   * Se inicializa el tiempo de rebote para la búsqueda de pokemones.
+   */
   constructor(private pokemonRepository: PokemonRepositoryService) {
     this.searchDebounce
       .pipe(debounceTime(500), distinctUntilChanged())
@@ -27,6 +30,9 @@ export class PokemonComponent implements OnInit {
       });
   }
 
+  /**
+   * Se inicializa la página de pokemones.
+   */
   ngOnInit(): void {
     this.changePage({
       first: 0,
@@ -34,6 +40,10 @@ export class PokemonComponent implements OnInit {
     });
   }
 
+  /**
+   * Realiza una búsqueda de pokemones.
+   * @param {string} incoming Cadena de texto a buscar.
+   */
   search(incoming: string) {
     const value = incoming.trim();
     if (value === '') {
@@ -59,6 +69,10 @@ export class PokemonComponent implements OnInit {
       });
   }
 
+  /**
+   * Cambia la página de pokemones.
+   * @param {PaginatorState} page Página de pokemones.
+   */
   changePage(page: PaginatorState) {
     this.first = page.first ?? 0;
     this.pageSize = page.rows ?? 20;

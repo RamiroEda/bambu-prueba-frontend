@@ -17,6 +17,9 @@ export class RegisterComponent {
     private router: Router
   ) {}
 
+  /**
+   * Formulario de registro.
+   */
   registerForm = new FormGroup(
     {
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -48,6 +51,9 @@ export class RegisterComponent {
   isLoading = false;
   maxDate = new Date();
 
+  /**
+   * Registra un nuevo usuario.
+   */
   async register() {
     if (this.registerForm.valid) {
       this.isLoading = true;

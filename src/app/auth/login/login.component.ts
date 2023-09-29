@@ -16,12 +16,22 @@ export class LoginComponent {
     private router: Router
   ) {}
 
+  /**
+   * Formulario de inicio de sesión.
+   */
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
   });
+
+  /**
+   * Indica si se está cargando la petición.
+   */
   isLoading = false;
 
+  /**
+   * Inicia sesión.
+   */
   async login() {
     if (this.loginForm.valid) {
       this.isLoading = true;

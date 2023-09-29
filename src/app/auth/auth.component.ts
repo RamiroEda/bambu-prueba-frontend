@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -7,12 +6,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent {
-  constructor(private router: Router) {}
+  constructor() {}
 
+  /**
+   * Opciones de navegación.
+   */
   options = [
     { label: 'Iniciar sesión', value: 'login' },
     { label: 'Registro', value: 'register' },
   ];
 
-  value: string = this.router.url.includes('register') ? 'register' : 'login';
+  /**
+   * Ruta de navegación actual.
+   */
+  value: string = 'login';
 }

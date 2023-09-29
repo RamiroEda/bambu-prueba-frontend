@@ -1,18 +1,23 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+interface CountNumbersPipeResult {
+  value: string;
+  error: boolean;
+}
+
 @Pipe({
   name: 'countNumbers',
 })
 export class CountNumbersPipe implements PipeTransform {
+  /**
+   * Transforma una cadena de números separados por comas en una cadena que indica la cantidad de veces que se repite cada número en orden descendente.
+   * @param {string} value Cadena de números separados por comas.
+   * @returns {CountNumbersPipeResult} Cadena que indica la cantidad de veces que se repite cada número en orden descendente.
+   */
   transform(
     value: string,
     ...args: never[]
-  ):
-    | {
-        value: string;
-        error: boolean;
-      }
-    | undefined {
+  ): CountNumbersPipeResult | undefined {
     if (!value) return undefined;
 
     try {

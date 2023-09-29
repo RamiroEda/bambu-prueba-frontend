@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./cadenas.component.scss'],
 })
 export class CadenasComponent {
+  /**
+   * Cadena de texto que contiene números separados por comas.
+   */
   numbers = '';
 }

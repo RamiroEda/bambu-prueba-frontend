@@ -11,5 +11,8 @@ export class ProfileComponent {
     private userRepository: UserRepositoryService
   ) { }
 
+  /**
+   * Usuario actual.
+   */
   user = this.userRepository.currentUser();
 }

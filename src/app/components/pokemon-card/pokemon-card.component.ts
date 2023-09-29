@@ -8,8 +8,18 @@ import { TypeColors } from '../../data/models/type-colors';
   styleUrls: ['./pokemon-card.component.scss'],
 })
 export class PokemonCardComponent {
+  /**
+   * Pokemon a mostrar.
+   */
   @Input() pokemon!: Pokemon;
+
+  /**
+   * Colores de los tipos de pokemones.
+   */
   TypeColors = TypeColors;
 
+  /**
+   * Indica si mostrar el modal de detalles del pokemon.
+   */
   isOpen = false;
 }

@@ -14,6 +14,9 @@ export class HomeComponent {
     private router: Router
   ) {}
 
+  /**
+   * Menú de navegación de la aplicación.
+   */
   menus: MenuItem[] = [
     {
       label: 'Pokemones',
@@ -29,6 +32,9 @@ export class HomeComponent {
     },
   ];
 
+  /**
+   * Cierra la sesión del usuario actual.
+   */
   async logout() {
     await this.authRepository.logout();
     this.router.navigate(['']);
