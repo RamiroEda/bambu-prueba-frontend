@@ -24,9 +24,9 @@ export class PokemonComponent implements OnInit {
    */
   constructor(private pokemonRepository: PokemonRepositoryService) {
     this.searchDebounce
-      .pipe(debounceTime(500), distinctUntilChanged())
+      .pipe(debounceTime(0), distinctUntilChanged())
       .subscribe((value) => {
-        this.search(value);
+        this.search();
       });
   }
 
@@ -34,38 +34,43 @@ export class PokemonComponent implements OnInit {
    * Se inicializa la página de pokemones.
    */
   ngOnInit(): void {
+    this.isLoading = true;
     this.changePage({
       first: 0,
       rows: 20,
+    }).then(() => {
+      this.isLoading = false;
     });
   }
 
   /**
    * Realiza una búsqueda de pokemones.
-   * @param {string} incoming Cadena de texto a buscar.
    */
-  search(incoming: string) {
-    const value = incoming.trim();
-    if (value === '') {
-      this.changePage({
-        first: 0,
-        rows: 20,
-      });
-      return;
-    }
-    this.isSearching = true;
+  search() {
+    // this.isSearching = true;
 
-    this.pokemonRepository
-      .get(value)
-      .then((res) => {
-        this.pokemons = [res];
-        this.totalPages = 1;
-        this.isSearching = false;
+    return this.refetch();
+    // .then(() => {
+    //   this.isSearching = false;
+    // })
+    // .catch(() => {
+    //   this.isSearching = false;
+    // });
+  }
+
+  /**
+   * Refresca la página de pokemones.
+   */
+  async refetch() {
+    return this.pokemonRepository
+      .getAll({
+        offset: this.first,
+        limit: this.pageSize,
+        search: this.searchValue,
       })
-      .catch(() => {
-        this.pokemons = [];
-        this.totalPages = 0;
-        this.isSearching = false;
+      .then((res) => {
+        this.pokemons = res.results;
+        this.totalPages = res.count;
       });
   }
 
@@ -76,11 +81,6 @@ export class PokemonComponent implements OnInit {
   changePage(page: PaginatorState) {
     this.first = page.first ?? 0;
     this.pageSize = page.rows ?? 20;
-    this.isLoading = true;
-    this.pokemonRepository.getAll(this.first, this.pageSize).then((res) => {
-      this.pokemons = res.results;
-      this.totalPages = res.count;
-      this.isLoading = false;
-    });
+    return this.refetch();
   }
 }
