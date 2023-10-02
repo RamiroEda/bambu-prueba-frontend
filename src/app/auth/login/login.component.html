@@ -7,12 +7,12 @@
     placeholder="Correo electrónico"
     formControlName="email"
   />
-  <input
+  <p-password
     name="password"
-    type="password"
-    pInputText
+    [toggleMask]="true"
     autocomplete="off"
     placeholder="Contraseña"
+    class="[&>*>input]:w-full [&>*]:w-full"
     formControlName="password"
   />
   <p-button

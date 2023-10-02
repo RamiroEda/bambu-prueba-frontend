@@ -15,19 +15,19 @@
     placeholder="Correo electrónico"
     formControlName="email"
   />
-  <input
+  <p-password
     name="password"
-    type="password"
-    pInputText
+    [toggleMask]="true"
     autocomplete="off"
     placeholder="Contraseña"
+    class="[&>*>input]:w-full [&>*]:w-full"
     formControlName="password"
   />
-  <input
+  <p-password
     name="passwordConfirm"
-    type="password"
-    pInputText
+    [toggleMask]="true"
     autocomplete="off"
+    class="[&>*>input]:w-full [&>*]:w-full"
     placeholder="Confirmar contraseña"
     formControlName="passwordConfirm"
   />

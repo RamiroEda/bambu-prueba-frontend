@@ -3,6 +3,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { CardModule } from 'primeng/card';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
 import { CalendarModule } from 'primeng/calendar';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { PaginatorModule } from 'primeng/paginator';
@@ -61,6 +62,7 @@ import { TimestampFormatPipe } from './home/profile/data/pipes/timestamp-format.
     ChipModule,
     DialogModule,
     MenubarModule,
+    PasswordModule,
     ReactiveFormsModule,
     ButtonModule,
     HttpClientModule,
