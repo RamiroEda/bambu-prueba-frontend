@@ -26,7 +26,8 @@ export class PokemonComponent implements OnInit {
     this.searchDebounce
       .pipe(debounceTime(0), distinctUntilChanged())
       .subscribe((value) => {
-        this.search();
+        this.first = 0;
+        return this.refetch();
       });
   }
 
@@ -41,21 +42,6 @@ export class PokemonComponent implements OnInit {
     }).then(() => {
       this.isLoading = false;
     });
-  }
-
-  /**
-   * Realiza una búsqueda de pokemones.
-   */
-  search() {
-    // this.isSearching = true;
-
-    return this.refetch();
-    // .then(() => {
-    //   this.isSearching = false;
-    // })
-    // .catch(() => {
-    //   this.isSearching = false;
-    // });
   }
 
   /**

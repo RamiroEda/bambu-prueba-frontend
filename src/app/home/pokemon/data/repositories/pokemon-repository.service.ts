@@ -51,7 +51,7 @@ export class PokemonRepositoryService {
           fetch(pokemon.url).then<Pokemon>((res) => res.json())
         )
       ),
-      count: pokemons.length,
+      count: searchFilteredPokemons.length,
     };
   }
 
